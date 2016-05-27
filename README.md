@@ -1,7 +1,7 @@
 # GraphSense
 Create beautiful graphs with your micro-controller sensor data!
 
-# Created by Emily Anne Moses
+Created by Emily Anne Moses
 
 **Objective:** Create easy to read graphs from micro-controller sensor data
 

@@ -22,20 +22,45 @@
   <link href="/styles/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link rel="stylesheet" type="text/css" href="/styles/style.css" media="screen,projection"/>
 
+  <!-- Angular -->
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-route.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/satellizer/0.13.4/satellizer.min.js"></script>
+
+  <!-- custom script (angular app) -->
+  <script type="text/javascript" src="scripts/controllers/auth-login.controller.js"></script>
+  <script type="text/javascript" src="scripts/controllers/auth-logout.controller.js"></script>
+  <script type="text/javascript" src="scripts/controllers/main.controller.js"></script>
+  <script type="text/javascript" src="scripts/controllers/posts-index.controller.js"></script>
+  <script type="text/javascript" src="scripts/controllers/posts-new.controller.js"></script>
+  <script type="text/javascript" src="scripts/controllers/posts-show.controller.js"></script>
+  <script type="text/javascript" src="scripts/controllers/posts-edit.controller.js"></script>
+  <script type="text/javascript" src="scripts/controllers/user-profile.controller.js"></script>
+  <script type="text/javascript" src="scripts/controllers/user-signup.controller.js"></script>
+  <script type="text/javascript" src="scripts/services/user.service.js"></script>
+  <script type="text/javascript" src="scripts/routes.js"></script>
+  <script type="text/javascript" src="scripts/app.js"></script>
+
   <title>High Charts With Materialize Test</title>
 
 </head>
 <body>
   <nav class="white" role="navigation">
     <div class="nav-wrapper container">
-      <a id="logo-container" href="#" class="brand-logo">Sensor Sense</a>
+      <a id="logo-container" href="/" class="brand-logo">Sensor Sense</a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="#">Log In</a></li>
-        <li><a href="#">Sign Up</a></li>
+        <li ng-show="!main.currentUser.isLoggedIn()"><a href="/login">Log In</a></li>
+        <li ng-show="!main.currentUser.isLoggedIn()"><a href="/signup">Sign Up</a></li>
+        <li ng-show="main.currentUser.isLoggedIn()"><a href="/profile">{{main.currentUser.displayName}}'s Profile</a></li>
+        <li ng-show="main.currentUser.isLoggedIn()"><a href="/logout">Log Out</a></li>
       </ul>
 
       <ul id="nav-mobile" class="side-nav">
         <li><a href="#">Mobile Nav-Change Later</a></li>
+        <li ng-show="!main.currentUser.isLoggedIn()"><a href="/login">Log In</a></li>
+        <li ng-show="!main.currentUser.isLoggedIn()"><a href="/signup">Sign Up</a></li>
+        <li ng-show="main.currentUser.isLoggedIn()"><a href="/profile">{{main.currentUser.displayName}}'s Profile</a></li>
+        <li ng-show="main.currentUser.isLoggedIn()"><a href="/logout">Log Out</a></li>
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">more</i></a>
     </div>

@@ -1,6 +1,6 @@
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema,
-    bcrypt =  require('bcryptjs');
+    bcrypt =  require('bcrypt');
 
 var userSchema = new Schema({
   created: { type: Date, default: Date.now },

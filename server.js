@@ -33,19 +33,19 @@ app.put('/api/me', auth.ensureAuthenticated, usersCtrl.updateCurrentUser);
  * API Routes
  */
 
-var postsCtrl = controllers.posts;
-app.get('/api/posts', postsCtrl.index);
-app.post('/api/posts', auth.ensureAuthenticated, postsCtrl.create);
-app.get('/api/posts/:id', postsCtrl.show);
-app.put('/api/posts/:id', auth.ensureAuthenticated, postsCtrl.update); //matching this update, making sure the user id is same as request, need ensureAuthenticated
-app.delete('/api/posts/:id', auth.ensureAuthenticated, postsCtrl.destroy);
+var graphsCtrl = controllers.graphs;
+app.get('/api/graphs', graphsCtrl.index);
+app.post('/api/graphs', auth.ensureAuthenticated, graphsCtrl.create);
+app.get('/api/graphs/:id', graphsCtrl.show);
+app.put('/api/graphs/:id', auth.ensureAuthenticated, graphsCtrl.update); //matching this update, making sure the user id is same as request, need ensureAuthenticated
+app.delete('/api/graphs/:id', auth.ensureAuthenticated, graphsCtrl.destroy);
 
 
 /*
  * Catch All Route
  */
-app.get(['/', '/signup', '/login', '/logout', '/profile', '/posts*'], function (req, res) {
-  res.sendFile(__dirname + '/views/index.html');
+app.get(['/', '/signup', '/login', '/logout', '/profile', '/graphs*'], function (req, res) {
+  res.sendFile(__dirname + '/views/index');
 });
 
 

@@ -4,7 +4,7 @@ function UserService($http, $q, $auth){
 
   var empty_user = {
     user_id: null,
-    displayName: null,
+    userName: null,
     email: null
   };
 

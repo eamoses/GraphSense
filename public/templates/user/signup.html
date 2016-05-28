@@ -1,45 +1,16 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<!-- Compiled and minified CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/css/materialize.min.css">
-
-<!-- Compiled and minified JavaScript -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js"></script>
-
-<div class="row center">
-  <button data-target="modal1" class="btn modal-trigger">Modal</button>
-</div>
-<!-- Modal Structure -->
-<div id="modal1" class="modal modal-fixed-footer">
-<div class="modal-content">
-<h4>Sign Up</h4>
-<form ng-submit="sc.signup()" class="col s12">
-  <div class="row">
-    <div class="input-field col s6">
-      <input ng-model="sc.new_user.userName" placeholder="Username" type="text" class="validate">
-    </div>
-    <div class="input-field col s6">
-      <input ng-model="sc.new_user.email" placeholder="Email" type="text" class="validate">
-    </div>
+<h3 class="text-center">Welcome!</h3>
+<hr>
+<form ng-submit="sc.signup()">
+	<div class="form-group">
+	  <input type="text" ng-model="sc.new_user.userName" class="form-control" placeholder="Full Name">
+	</div>
+  <div class="form-group">
+    <input type="text" ng-model="sc.new_user.email" class="form-control" placeholder="Email">
   </div>
-  <div class="row">
-    <div class="input-field col s12">
-      <input ng-model="sc.new_user.password" type="password" class="validate">
-      <label for="password">Password</label>
-    </div>
+  <div class="form-group">
+    <input type="password" ng-model="sc.new_user.password" class="form-control" placeholder="Password">
   </div>
+  <input type="submit" value="Sign Up" class="btn btn-block btn-info">
 </form>
-</div>
-<div class="modal-footer">
-  <button class="btn waves-effect waves-light" type="submit" value="Sign Up" name="action">Submit
-    <i class="material-icons right"></i>
-  </button>
+<br>
 <p class="text-muted">Already have an account? <a href="/login">Log in here.</a></p>
-</div>
-</div>
-
-<script>
-$(document).ready(function() {
-  // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-  $('.modal-trigger').leanModal();
-});
-</script>

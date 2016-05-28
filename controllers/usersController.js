@@ -22,7 +22,7 @@ function signup(req, res) {
       return res.status(409).send({ message: 'Email is already taken.' });
     }
     var user = new User({
-      displayName: req.body.displayName,
+      userName: req.body.userName,
       email: req.body.email,
       password: req.body.password
     });
@@ -40,8 +40,7 @@ function updateCurrentUser(req, res) {
     if (!user) {
       return res.status(400).send({ message: 'User not found.' });
     }
-    user.displayName = req.body.displayName || user.displayName;
-    user.username = req.body.username || user.username;
+    user.userName = req.body.userName || user.userName;
     user.email = req.body.email || user.email;
     user.save(function(err, result) {
       res.send({ token: auth.createJWT(result) });

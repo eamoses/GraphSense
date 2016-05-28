@@ -12,5 +12,4 @@ angular
   .controller('LogoutController', LogoutController)
   .controller('ProfileController', ProfileController)
   .service('UserService', UserService)
-  .config(configRoutes)
-  ;
+  .config(configRoutes);

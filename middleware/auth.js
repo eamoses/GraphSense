@@ -32,6 +32,7 @@ function createJWT(user) {
   var payload = {
     user_id: user._id, // required by satellizer
     userName: user.userName,
+    email: user.email,
     iat: moment().unix(),
     exp: moment().add(14, 'days').unix()
   };

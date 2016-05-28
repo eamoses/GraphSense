@@ -5,6 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
   <!-- set viewport to device width to make site responsive -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Materialize CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+
+  <!-- JavaScript for: jQuery, angular, materialize, and angular-materialize. All of which are needed. -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-materialize/0.1.8/angular-materialize.min.js"></script>
+
   <!-- bootstrap css -->
   <!-- <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> -->
   <!-- jquery -->
@@ -42,267 +51,37 @@
   <title>High Charts With Materialize Test</title>
 
 </head>
-<body>
+<body ng-controller="MainController as main">
   <nav class="white" role="navigation">
     <div class="nav-wrapper container">
       <a id="logo-container" href="/" class="brand-logo">Graph Sense</a>
       <ul class="right hide-on-med-and-down">
-        <li ng-show="!main.currentUser.isLoggedIn()"><a href="/login">Log In</a></li>
-        <li ng-show="!main.currentUser.isLoggedIn()"><a href="/signup">Sign Up</a></li>
-        <li ng-show="main.currentUser.isLoggedIn()"><a href="/profile">{{main.currentUser.userName}}'s Profile</a></li>
-        <li ng-show="main.currentUser.isLoggedIn()"><a href="/logout">Log Out</a></li>
+          <li ng-show="!main.currentUser.isLoggedIn()"><a href="/signup">Sign Up</a></li>
+          <li ng-show="!main.currentUser.isLoggedIn()"><a href="/login">Log In</a></li>
+          <li ng-show="main.currentUser.isLoggedIn()"><a href="/profile">{{main.currentUser.displayName}}'s Profile</a></li>
+          <li ng-show="main.currentUser.isLoggedIn()"><a href="/logout">Log Out</a></li>
       </ul>
 
       <ul id="nav-mobile" class="side-nav">
-        <li><a href="#">Mobile Nav-Change Later</a></li>
-        <li ng-show="!main.currentUser.isLoggedIn()"><a href="/login">Log In</a></li>
-        <li ng-show="!main.currentUser.isLoggedIn()"><a href="/signup">Sign Up</a></li>
-        <li ng-show="main.currentUser.isLoggedIn()"><a href="/profile">{{main.currentUser.userName}}'s Profile</a></li>
-        <li ng-show="main.currentUser.isLoggedIn()"><a href="/logout">Log Out</a></li>
+          <li><a href="#">Mobile Nav-Change Later</a></li>
+          <li ng-show="!main.currentUser.isLoggedIn()"><a href="/signup">Sign Up</a></li>
+          <li ng-show="!main.currentUser.isLoggedIn()"><a href="/login">Log In</a></li>
+          <li ng-show="main.currentUser.isLoggedIn()"><a href="/profile">{{main.currentUser.displayName}}'s Profile</a></li>
+          <li ng-show="main.currentUser.isLoggedIn()"><a href="/logout">Log Out</a></li>
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">more</i></a>
     </div>
   </nav>
 
-  <div id="index-banner" class="parallax-container">
-    <div class="section no-pad-bot">
-      <div class="container">
-        <br><br>
-        <h1 class="header center black-text text-lighten-2">High Charts With Materialize</h1>
-        <div class="row center">
-          <h5 class="header col s12 black-text">Let's Get Sensortive</h5>
-        </div>
-        <div class="row center">
-          <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light grey lighten-1">Get C++ Code</a>
-        </div>
-        <br><br>
-
-      </div>
-    </div>
-    <div class="parallax"><img src="https://hackster.imgix.net/uploads/image/file/137496/IMG_1775.JPG?w=580&h=435&fit=max"></img></div>
-    <!-- <div class="parallax"><img src="background1.jpg" alt="Unsplashed background img 1"></div> -->
-  </div>
-
-
   <div class="container">
-    <div class="section">
-
-      <!--   Icon Section   -->
-      <div class="row">
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
-            <h5 class="center">Get C++ Code for your sensor</h5>
-
-            <p class="light">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
-          </div>
-        </div>
-
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">group</i></h2>
-            <h5 class="center">Check Out Our Users Graphs!</h5>
-
-            <p class="light">By utilizing elements and principles of Material Design, we were able to create a framework that incorporates components and animations that provide more feedback to users. Additionally, a single underlying responsive system across all platforms allow for a more unified user experience.</p>
-          </div>
-        </div>
-
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">settings</i></h2>
-            <h5 class="center">Make Your Own Collection</h5>
-
-            <p class="light">We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.</p>
-          </div>
-        </div>
-      </div>
-
+    <div class="row">
+      <div ng-view></div>
     </div>
   </div>
-
-  <div class="parallax-container valign-wrapper">
-    <div class="section no-pad-bot">
-      <div class="container">
-        <div class="row center">
-          <h5 class="header col s12 light">Possible Text Here</h5>
-        </div>
-      </div>
-    </div>
-    <div id="container" class="parallax" style="width:100%; height:400px;"></div>
-    <!-- <div class="parallax"><img src="background2.jpg" alt="Unsplashed background img 2"></div> -->
-  </div>
-
-  <div class="container">
-    <div class="section">
-
-      <div class="row">
-        <div class="col s12 center">
-          <h3><i class="mdi-content-send brown-text"></i></h3>
-          <h4>Contact The Developer</h4>
-          <p class="left-align light">MY PORTFOLIO HERE-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="parallax-container valign-wrapper">
-    <div class="section no-pad-bot">
-      <div class="container">
-        <div class="row center">
-          <!-- <h5 class="header col s12 light">MORE RESOURCES TO GET STARTED</h5> -->
-        </div>
-      </div>
-    </div>
-    <div class="parallax"><img src="https://hackster.imgix.net/uploads/image/file/137506/IMG_1191.JPG?w=580&h=435&fit=max"></img></div>
-    <!-- <div class="parallax"><img src="background3.jpg" alt="Unsplashed background img 3"></div> -->
-  </div>
-
-  <script>
-  // set the theme
-   Highcharts.setOptions({
-       colors: ['#058DC7', '#50B432', '#ED561B', '#DDDF00', '#24CBE5', '#64E572', '#FF9655', '#FFF263', '#6AF9C4'],
-       chart: {
-           backgroundColor: {
-               linearGradient: [0, 0, 500, 500],
-               stops: [
-                   [0, 'rgb(255, 255, 255)'],
-                   [1, 'rgb(240, 240, 255)']
-               ]
-           },
-           borderWidth: 2,
-           plotBackgroundColor: 'rgba(255, 255, 255, .9)',
-           plotShadow: true,
-           plotBorderWidth: 1
-       },
-       title: {
-           style: {
-               color: '#000',
-               font: 'bold 16px "Trebuchet MS", Verdana, sans-serif'
-           }
-       },
-       subtitle: {
-           style: {
-               color: '#666666',
-               font: 'bold 12px "Trebuchet MS", Verdana, sans-serif'
-           }
-       },
-       xAxis: {
-           gridLineWidth: 1,
-           lineColor: '#000',
-           tickColor: '#000',
-           labels: {
-               style: {
-                   color: '#000',
-                   font: '11px Trebuchet MS, Verdana, sans-serif'
-               }
-           },
-           title: {
-               style: {
-                   color: '#333',
-                   fontWeight: 'bold',
-                   fontSize: '12px',
-                   fontFamily: 'Trebuchet MS, Verdana, sans-serif'
-
-               }
-           }
-       },
-       yAxis: {
-           alternateGridColor: null,
-           minorTickInterval: 'auto',
-           lineColor: '#000',
-           lineWidth: 1,
-           tickWidth: 1,
-           tickColor: '#000',
-           labels: {
-               style: {
-                   color: '#000',
-                   font: '11px Trebuchet MS, Verdana, sans-serif'
-               }
-           },
-           title: {
-               style: {
-                   color: '#333',
-                   fontWeight: 'bold',
-                   fontSize: '12px',
-                   fontFamily: 'Trebuchet MS, Verdana, sans-serif'
-               }
-           }
-       },
-       legend: {
-           itemStyle: {
-               font: '9pt Trebuchet MS, Verdana, sans-serif',
-               color: 'black'
-
-           },
-           itemHoverStyle: {
-               color: '#039'
-           },
-           itemHiddenStyle: {
-               color: 'gray'
-           }
-       },
-       credits: {
-           style: {
-               right: '10px'
-           }
-       },
-       labels: {
-           style: {
-               color: '#99b'
-           }
-       }
-   });
-
-   // create the chart
-   $('#container').highcharts({
-
-       xAxis: {
-           type: 'datetime'
-       },
-
-       series: [{
-           data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4],
-           pointStart: Date.UTC(2010, 0, 1),
-           pointInterval: 3600 * 1000 // one hour
-       }]
-   });
-  </script>
-
-  <footer class="page-footer darkgrey">
-    <div class="container">
-      <div class="row">
-        <div class="col l6 s12">
-          <h5 class="white-text">Emily Anne Moses' Bio</h5>
-          <p class="grey-text text-lighten-4">I am a good person who works hard. Here are things you should see:</p>
-
-
-        </div>
-        <!-- <div class="col l3 s12">
-          <h5 class="white-text">Settings</h5>
-          <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
-          </ul>
-        </div> -->
-        <div class="col l3 s12">
-          <h5 class="white-text">Connect</h5>
-          <ul>
-            <li><a class="white-text" href="#!">Portfolio</a></li>
-            <li><a class="white-text" href="#!">Project This</a></li>
-            <li><a class="white-text" href="#!">My Github</a></li>
-            <li><a class="white-text" href="#!">Something I Enjoy</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </footer>
 
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="/scripts/js/materialize.js"></script>
   <script src="/scripts/js/init.js"></script>
-
 </body>
 </html>

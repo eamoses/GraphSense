@@ -12,33 +12,25 @@
 <div id="modal1" class="modal modal-fixed-footer">
 <div class="modal-content">
 <h4>Sign Up</h4>
-<form ng-submit="sc.signup()" method="POST" action="/signup" class="col s12">
+<form ng-submit="sc.signup()" class="col s12">
   <div class="row">
     <div class="input-field col s6">
-      <input placeholder="First Name" id="first_name" type="text" class="validate">
-      <label for="first_name">First Name</label>
+      <input ng-model="sc.new_user.userName" placeholder="Username" type="text" class="validate">
     </div>
     <div class="input-field col s6">
-      <input placeholder="Last Name" id="last_name" type="text" class="validate">
-      <label for="last_name">Last Name</label>
+      <input ng-model="sc.new_user.email" placeholder="Email" type="text" class="validate">
     </div>
   </div>
   <div class="row">
     <div class="input-field col s12">
-      <input placeholder="Username" id="" type="text" class="validate">
-      <label for="username">Usernme</label>
-    </div>
-  </div>
-  <div class="row">
-    <div class="input-field col s12">
-      <input id="password" type="password" class="validate">
+      <input ng-model="sc.new_user.password" type="password" class="validate">
       <label for="password">Password</label>
     </div>
   </div>
 </form>
 </div>
 <div class="modal-footer">
-  <button class="btn waves-effect waves-light" type="submit" name="action"><a href="/profile" style="color: white;">Submit</a>
+  <button class="btn waves-effect waves-light" type="submit" value="Sign Up" name="action">Submit
     <i class="material-icons right"></i>
   </button>
 <p class="text-muted">Already have an account? <a href="/login">Log in here.</a></p>

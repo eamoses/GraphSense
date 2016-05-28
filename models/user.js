@@ -5,8 +5,10 @@ var mongoose = require('mongoose'),
 var userSchema = new Schema({
   created: { type: Date, default: Date.now },
   updated: { type: Date },
+  email: { type: String, unique: true, lowercase: true },
   password: { type: String, select: false },
-  userName: String
+  userName: String,
+  picture: String
 });
 
 userSchema.pre('save', function (next) {

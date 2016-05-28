@@ -45,7 +45,7 @@ app.delete('/api/graphs/:id', auth.ensureAuthenticated, graphsCtrl.destroy);
  * Catch All Route
  */
 app.get(['/', '/signup', '/login', '/logout', '/profile', '/graphs*'], function (req, res) {
-  res.sendFile(__dirname + '/views/index');
+  res.sendFile(__dirname + '/views/index.html');
 });
 
 

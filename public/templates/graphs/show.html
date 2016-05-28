@@ -1,0 +1,9 @@
+<!-- GraphsShowController as graphsShowCtrl -->
+<h2>{{graphsShowCtrl.graph.title}}</h2>
+<p>{{graphsShowCtrl.graph.content}}</p>
+<a ng-show="main.currentUser.isLoggedIn() && graphsShowCtrl.graph.user._id === main.currentUser.user_id;"
+   class="btn btn-primary"
+   ng-href="/graphs/{{graphsShowCtrl.graph._id}}/edit">Edit Graph</a>
+<a ng-show="main.currentUser.isLoggedIn() && graphsShowCtrl.graph.user._id === main.currentUser.user_id;"
+   class="btn btn-danger col-xl-2"
+   ng-click="graphsShowCtrl.destroy()">Delete Graph</a>

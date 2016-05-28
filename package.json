@@ -8,18 +8,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/sf-wdi-24/express-microblog.git"
+    "url": "https://github.com/eamoses/GraphSense.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/sf-wdi-24/express-microblog/issues"
+    "url": "https://github.com/eamoses/GraphSense/issues"
   },
-  "homepage": "https://github.com/sf-wdi-24/express-microblog",
+  "homepage": "https://github.com/eamoses/GraphSense.git",
   "dependencies": {
+    "bcrypt": "^0.8.6",
     "body-parser": "^1.14.1",
     "chai": "^3.4.0",
     "cookie-parser": "^1.4.3",
+    "dotenv": "^2.0.0",
     "express": "^4.13.3",
     "express-session": "^1.13.0",
     "hbs": "^4.0.0",

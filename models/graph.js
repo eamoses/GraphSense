@@ -1,11 +1,11 @@
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
-var GraphSchema = new Schema({
+var graphSchema = new Schema({
+  user: { type: Schema.Types.ObjectId, ref: 'User' },
   title: String,
   description: String
 });
 
-var Graph = mongoose.model('Graph', GraphSchema);
-
+var Graph = mongoose.model('Graph', graphSchema);
 module.exports = Graph;

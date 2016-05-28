@@ -1,0 +1,15 @@
+<h2>Graph Sense</h2>
+<hr>
+
+
+<p ng-if="!home.graphs.length">No graphs yet.</p>
+
+<div ng-if="home.graphs.length">
+  <div ng-repeat="graph in home.graphs">
+    <p>
+      <strong><a ng-href="/graphs/{{graph._id}}">{{graph.title}}</a></strong>  {{graph.content}}   -{{graph.user.userName}}
+    </p>
+  </div>
+</div>
+
+<a ng-show="main.currentUser.isLoggedIn()" class="btn btn-primary btn-block" href="/graphs/new">Add New Graph</a>

@@ -20,10 +20,8 @@ function signup(req, res) {
   User.findOne({
     userName: req.body.userName
   },
-  { email: req.body.email
-  },
-  function (err, existingUser, existingEmail) {
-    if (existingUser || existingEmail) {
+  function (err, existingUser) {
+    if (existingUser) {
       return res.status(409).send({
         message: 'Email or username is already taken.'
       });

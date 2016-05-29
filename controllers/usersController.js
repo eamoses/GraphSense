@@ -17,9 +17,16 @@ function login(req, res) {
 }
 
 function signup(req, res) {
-  User.findOne({ email: req.body.email }, function (err, existingUser) {
-    if (existingUser) {
-      return res.status(409).send({ message: 'Email is already taken.' });
+  User.findOne({
+    userName: req.body.userName
+  },
+  { email: req.body.email
+  },
+  function (err, existingUser, existingEmail) {
+    if (existingUser || existingEmail) {
+      return res.status(409).send({
+        message: 'Email or username is already taken.'
+      });
     }
     var user = new User({
       userName: req.body.userName,
@@ -40,7 +47,6 @@ function updateCurrentUser(req, res) {
     if (!user) {
       return res.status(400).send({ message: 'User not found.' });
     }
-    user.userName = req.body.userName || user.userName;
     user.email = req.body.email || user.email;
     user.save(function(err, result) {
       res.send({ token: auth.createJWT(result) });

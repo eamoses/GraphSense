@@ -30,6 +30,8 @@
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^4.0.0",
+    "pubnub": "^3.14.5",
+    "pubnub-angular": "^3.2.0",
     "request": "^2.65.0"
   }
 }

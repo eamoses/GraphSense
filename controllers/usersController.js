@@ -31,7 +31,8 @@ function signup(req, res) {
     var user = new User({
       userName: req.body.userName,
       email: req.body.email,
-      password: req.body.password
+      password: req.body.password,
+      location: req.body.location
     });
     user.save(function (err, result) {
       if (err) {

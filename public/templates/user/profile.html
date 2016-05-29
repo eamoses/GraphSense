@@ -1,3 +1,5 @@
+<div class="row">
+  <div class="col-xs-6 col-md-2">
 <h3>{{main.currentUser.userName}}</h3>
 <hr>
 <p><strong>Username:</strong> {{main.currentUser.userName}}</p>
@@ -5,19 +7,24 @@
 <!-- <p><strong>Joined:</strong> {{main.currentUser.created}}</p> -->
 <p><strong>Graphs:</strong> {{main.currentUser.graphs.length || 0}}</p>
 <p><strong>Current Location:</strong>{{main.currentUser.currentLocation}}</p>
-
 <hr>
 <a href="#" ng-click="profileCtrl.showEditForm=true" ng-hide="profileCtrl.showEditForm" class="btn btn-default"><i class="fa fa-pencil"></i> Edit Profile</a>
+</div>
 
-<form ng-submit="profileCtrl.updateProfile()" ng-show="profileCtrl.showEditForm">
-  <!-- <div class="form-group">
-    <input type="text" ng-model="profileCtrl.new_profile.userName" class="form-control" placeholder="Username">
-  </div> -->
-  <div class="form-group">
-    <input type="text" ng-model="profileCtrl.new_profile.email" class="form-control" placeholder="Email">
-  </div>
-  <div class="form-group">
-    <input type="text" ng-model="profileCtrl.new_profile.currentLocation" class="form-control" placeholder="Current Location">
-  </div>
-  <input type="submit" value="Save Profile" class="btn btn-block btn-info">
-</form>
+   <div id="container" class="col-xs-12 col-md-10" style="height: 400px; border-style: solid; border-width: 1px; border-color: black;">.col-sm-5 .col-sm-offset-2 .col-md-6 .col-md-offset-0
+   </div>
+
+</div>
+
+    <form ng-submit="profileCtrl.updateProfile()" ng-show="profileCtrl.showEditForm">
+      <div class="form-group">
+        <input type="text" ng-model="profileCtrl.new_profile.userName" class="form-control" placeholder="Username">
+      </div>
+      <div class="form-group">
+        <input type="text" ng-model="profileCtrl.new_profile.email" class="form-control" placeholder="Email">
+      </div>
+      <div class="form-group">
+        <input type="text" ng-model="profileCtrl.new_profile.currentLocation" class="form-control" placeholder="Current Location">
+      </div>
+      <input type="submit" value="Save Profile" class="btn btn-block btn-info">
+    </form>

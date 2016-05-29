@@ -29,8 +29,8 @@ function signup(req, res) {
     var user = new User({
       userName: req.body.userName,
       email: req.body.email,
-      password: req.body.password,
-      location: req.body.location
+      currentLocation: req.body.currentLocation,
+      password: req.body.password
     });
     user.save(function (err, result) {
       if (err) {
@@ -46,6 +46,7 @@ function updateCurrentUser(req, res) {
     if (!user) {
       return res.status(400).send({ message: 'User not found.' });
     }
+    user.currentLocation = req.body.currentLocation || user.currentLocation;
     user.email = req.body.email || user.email;
     user.save(function(err, result) {
       res.send({ token: auth.createJWT(result) });

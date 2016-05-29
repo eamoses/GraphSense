@@ -2,6 +2,18 @@ var auth = require('../middleware/auth');
 var db = require('../models'),
     User = db.User;
 
+    function index(req, res) {
+      User
+        .find({})
+        .populate('user')
+        .exec(function(err, users){
+          if (err || !users || !users.length) {
+            return res.status(404).send({message: 'Users not found.'});
+          }
+          res.send(users);
+        });
+    }
+
 function login(req, res) {
   User.findOne({ email: req.body.email }, '+password', function (err, user) {
     if (!user) {

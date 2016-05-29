@@ -1,0 +1,27 @@
+<h2>Graph Sense</h2>
+
+  <hr>
+
+<div class="row">
+    <div class="col-xs-12 col-md-4">
+    </div>
+    <div class ="col-xs-12 col-md-8">
+    </div>
+</div>
+
+    <hr>
+
+<div ng-if="home.users.length">
+ <div ng-repeat="user in home.users">
+  <div class ="row">
+    <div id="container" class="col-xs-12 col-md-12" style="height: 400px; border-style: solid; border-width: 1px; border-color: black;">
+      <p>
+        <strong><a ng-href="/users/{{user._id}}">{{user.userName}}</a></strong>
+      </p>
+    </div>
+  </div>
+
+      <hr>
+
+ </div>
+</div>

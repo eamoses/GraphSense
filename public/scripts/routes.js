@@ -9,7 +9,7 @@ function configRoutes($routeProvider, $locationProvider) {
 
   $routeProvider
     .when('/', {
-      templateUrl: 'templates/graphs/index.html',
+      templateUrl: 'templates/user/index.html',
       controller: 'GraphsIndexController',
       controllerAs: 'home'
     })

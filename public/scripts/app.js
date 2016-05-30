@@ -2,9 +2,8 @@ angular
   .module('GraphSense', [
     'ngRoute',
     'satellizer',
-    'pubnub.angular.service',
-    'angularMaterialize'
-  ])
+    'pubnub.angular.service'
+    ])
   .controller('MainController', MainController)
   .controller('GraphsIndexController', GraphsIndexController)
   .controller('GraphsNewController', GraphsNewController)

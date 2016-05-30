@@ -60,11 +60,13 @@
   <script src="https://cdn.pubnub.com/sdk/pubnub-angular/pubnub-angular-3.1.1.js"></script>
   <!--PUBNUB-->
 
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-materialize/0.1.8/angular-materialize.min.js"></script>
+
   <title>Graph Sense</title>
 </head>
 <body ng-controller="MainController as main">
-  <nav class="navbar navbar-default">
-    <div class="container">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar-collapse-1" aria-expanded="false">
           <span class="sr-only">Toggle navigation</span>
@@ -85,11 +87,17 @@
       </div>
     </div>
   </nav>
-  <div class="container">
-    <div class="row">
-      <div ng-view>
+
+
+    <div class="container">
+      <div class="row">
+        <div ng-view>
+        </div>
       </div>
     </div>
-  </div>
+
+
+
+
 </body>
 </html>

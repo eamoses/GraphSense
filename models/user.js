@@ -8,6 +8,7 @@ var userSchema = new Schema({
   email: { type: String, unique: true, lowercase: true },
   password: { type: String, select: false },
   userName: String,
+  graph: { type: String },
   currentLocation: String,
   picture: String
 });

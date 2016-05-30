@@ -15,8 +15,7 @@ describe('Graphs', function() {
       {
         url: baseUrl + '/api/graphs',
         form: {
-          title: 'Hello World',
-          description: 'A graph about saying hello.'
+          title: 'Hello World'
         }
       },
       function(error, response, body) {
@@ -45,8 +44,7 @@ describe('Graphs', function() {
         {
           url: baseUrl + '/api/graphs/' + singleGraph._id,
           form: {
-            title: 'Goodbye',
-            description: 'A graph about saying goodbye.'
+            title: 'Goodbye'
           }
         },
         function (error, response, body) {

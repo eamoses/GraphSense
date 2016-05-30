@@ -4,7 +4,8 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     logger = require('morgan'),
     auth = require('./middleware/auth'),
-    controllers = require("./controllers");
+    controllers = require("./controllers"),
+    angularMaterialize = require('angular-materialize');
 
 // require and load dotenv
 require('dotenv').load();

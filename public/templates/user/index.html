@@ -31,11 +31,11 @@
 
 
       <div class="col-sm-3 col-xs-6">
-        <button class="btn btn-primary glyphicon glyphicon-cloud" data-toggle="modal" data-target="#largeModal"></button>
+        <button class="btn btn-primary glyphicon glyphicon-cloud" data-toggle="modal" data-target="#largeModal1"></button>
         <h4>Pressure</h4>
         <h6>Click the cloud</h6>
         <!-- Large modal -->
-        <div id="largeModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog">
+        <div id="largeModal1" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -43,94 +43,7 @@
                         <h4 class="modal-title">Pressure Sensor C++ Code</h4>
                     </div>
                     <div class="modal-body">
-                      <p>/****************************************
-                      Example Sound Level Sketch for the
-                      Adafruit Microphone Amplifier
-                      ****************************************/
-                      #include <WiFi101.h>
-
-                      static char ssid[] = "2WIRE648";
-                      static char password[] = "3519464889";
-                      int keyIndex = 0;
-                      int status = WL_IDLE_STATUS;
-                      const char server[] = "pubsub.pubnub.com";
-                      WiFiClient client;
-
-                      int audio = A0;
-                      int delayTime = 5000;
-
-                      const int sampleWindow = 50; // Sample window width in mS (50 mS = 20Hz)
-                      unsigned int sample;
-
-                      void setup() {
-                         Serial.begin(115200);
-                         delay(10);
-                         pinMode(audio, INPUT);
-
-                         while (status != WL_CONNECTED) {
-                          Serial.print("Attempting to conenct to SSID: ");
-                          Serial.println(ssid);
-                          status = WiFi.begin(ssid, password);
-                          delay(10000);
-                         }
-                         printWifiStatus();
-                      }
-
-
-                      void loop() {
-                         unsigned long startMillis= millis();  // Start of sample window
-                         unsigned int peakToPeak = 0;   // peak-to-peak level
-
-                         unsigned int signalMax = 0;
-                         unsigned int signalMin = 1024;
-
-                         // collect data for 50 mS
-                         while (millis() - startMillis < sampleWindow)
-                         {
-                            sample = analogRead(0);
-                            if (sample < 1024)  // toss out spurious readings
-                            {
-                               if (sample > signalMax)
-                               {
-                                  signalMax = sample;  // save just the max levels
-                               }
-                               else if (sample < signalMin)
-                               {
-                                  signalMin = sample;  // save just the min levels
-                               }
-                            }
-                         }
-                         peakToPeak = signalMax - signalMin;  // max - min = peak-peak amplitude
-                         double volts = (peakToPeak * 3.3) / 1024;  // convert to volts
-                         int audio = volts * 100;
-
-                         Serial.println(audio);
-
-                          String audioToPubnub = String(audio);
-                          client.stop();
-                           if(client.connect(server, 80)) {
-                            client.println("GET /publish/pub-c-a3ff103c-13da-40f7-9134-45670c77ae43/sub-c-8740379a-1fcd-11e6-8b91-02ee2ddab7fe/0/test/0/%7B%22audio%22%3A"+audioToPubnub+"%7D HTTP/1.1");
-                            client.println("Host: pubsub.pubnub.com");
-                            client.println("User-Agent: ArduinoWiFi/1.1");
-                            client.println("Connection: close");
-                            client.println();
-                           } else {
-                            Serial.println("Connection failed!");
-                           }
-                         delay(500);
-                      }
-
-                        void printWifiStatus(){
-                          Serial.print("SSID: ");
-                          Serial.print(WiFi.SSID());
-                          IPAddress ip = WiFi.localIP();
-                          Serial.print("IP Address: ");
-                          Serial.println(ip);
-                          long rssi = WiFi.RSSI();
-                          Serial.print("signal strength (RSSI):");
-                          Serial.print(rssi);
-                          Serial.println(" dBm");
-                        }
+                      <p> Put C++ text here.
                       </p>
                     </div>
                 </div>
@@ -140,106 +53,19 @@
 
 
       <div class="col-sm-3 col-xs-6">
-        <button class="btn btn-primary glyphicon glyphicon-leaf" data-toggle="modal" data-target="#largeModal"></button>
+        <button class="btn btn-primary glyphicon glyphicon-leaf" data-toggle="modal" data-target="#largeModal2"></button>
         <h4>Temperature</h4>
         <p>Click the leaf</p>
         <!-- Large modal -->
-        <div id="largeModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog">
+        <div id="largeModal2" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title">Temperature Sensor C++ Code</h4>
+                        <p class="modal-title">Temperature Sensor C++ Code</p>
                     </div>
                     <div class="modal-body">
-                      <p>/****************************************
-                      Example Sound Level Sketch for the
-                      Adafruit Microphone Amplifier
-                      ****************************************/
-                      #include <WiFi101.h>
-
-                      static char ssid[] = "2WIRE648";
-                      static char password[] = "3519464889";
-                      int keyIndex = 0;
-                      int status = WL_IDLE_STATUS;
-                      const char server[] = "pubsub.pubnub.com";
-                      WiFiClient client;
-
-                      int audio = A0;
-                      int delayTime = 5000;
-
-                      const int sampleWindow = 50; // Sample window width in mS (50 mS = 20Hz)
-                      unsigned int sample;
-
-                      void setup() {
-                         Serial.begin(115200);
-                         delay(10);
-                         pinMode(audio, INPUT);
-
-                         while (status != WL_CONNECTED) {
-                          Serial.print("Attempting to conenct to SSID: ");
-                          Serial.println(ssid);
-                          status = WiFi.begin(ssid, password);
-                          delay(10000);
-                         }
-                         printWifiStatus();
-                      }
-
-
-                      void loop() {
-                         unsigned long startMillis= millis();  // Start of sample window
-                         unsigned int peakToPeak = 0;   // peak-to-peak level
-
-                         unsigned int signalMax = 0;
-                         unsigned int signalMin = 1024;
-
-                         // collect data for 50 mS
-                         while (millis() - startMillis < sampleWindow)
-                         {
-                            sample = analogRead(0);
-                            if (sample < 1024)  // toss out spurious readings
-                            {
-                               if (sample > signalMax)
-                               {
-                                  signalMax = sample;  // save just the max levels
-                               }
-                               else if (sample < signalMin)
-                               {
-                                  signalMin = sample;  // save just the min levels
-                               }
-                            }
-                         }
-                         peakToPeak = signalMax - signalMin;  // max - min = peak-peak amplitude
-                         double volts = (peakToPeak * 3.3) / 1024;  // convert to volts
-                         int audio = volts * 100;
-
-                         Serial.println(audio);
-
-                          String audioToPubnub = String(audio);
-                          client.stop();
-                           if(client.connect(server, 80)) {
-                            client.println("GET /publish/pub-c-a3ff103c-13da-40f7-9134-45670c77ae43/sub-c-8740379a-1fcd-11e6-8b91-02ee2ddab7fe/0/test/0/%7B%22audio%22%3A"+audioToPubnub+"%7D HTTP/1.1");
-                            client.println("Host: pubsub.pubnub.com");
-                            client.println("User-Agent: ArduinoWiFi/1.1");
-                            client.println("Connection: close");
-                            client.println();
-                           } else {
-                            Serial.println("Connection failed!");
-                           }
-                         delay(500);
-                      }
-
-                        void printWifiStatus(){
-                          Serial.print("SSID: ");
-                          Serial.print(WiFi.SSID());
-                          IPAddress ip = WiFi.localIP();
-                          Serial.print("IP Address: ");
-                          Serial.println(ip);
-                          long rssi = WiFi.RSSI();
-                          Serial.print("signal strength (RSSI):");
-                          Serial.print(rssi);
-                          Serial.println(" dBm");
-                        }
+                      <p>Put Temperature C++ Here
                       </p>
                     </div>
                 </div>
@@ -249,11 +75,11 @@
 
 
       <div class="col-sm-3 col-xs-6">
-        <button class="btn btn-primary glyphicon glyphicon-flash" data-toggle="modal" data-target="#largeModal"></button>
+        <button class="btn btn-primary glyphicon glyphicon-flash" data-toggle="modal" data-target="#largeModal3"></button>
         <h4>Light</h4>
         <p>Click the lightning bolt</p>
         <!-- Large modal -->
-        <div id="largeModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog">
+        <div id="largeModal3" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -261,94 +87,7 @@
                         <h4 class="modal-title">Light Sensor C++ Code</h4>
                     </div>
                     <div class="modal-body">
-                      <p>/****************************************
-                      Example Sound Level Sketch for the
-                      Adafruit Microphone Amplifier
-                      ****************************************/
-                      #include <WiFi101.h>
-
-                      static char ssid[] = "2WIRE648";
-                      static char password[] = "3519464889";
-                      int keyIndex = 0;
-                      int status = WL_IDLE_STATUS;
-                      const char server[] = "pubsub.pubnub.com";
-                      WiFiClient client;
-
-                      int audio = A0;
-                      int delayTime = 5000;
-
-                      const int sampleWindow = 50; // Sample window width in mS (50 mS = 20Hz)
-                      unsigned int sample;
-
-                      void setup() {
-                         Serial.begin(115200);
-                         delay(10);
-                         pinMode(audio, INPUT);
-
-                         while (status != WL_CONNECTED) {
-                          Serial.print("Attempting to conenct to SSID: ");
-                          Serial.println(ssid);
-                          status = WiFi.begin(ssid, password);
-                          delay(10000);
-                         }
-                         printWifiStatus();
-                      }
-
-
-                      void loop() {
-                         unsigned long startMillis= millis();  // Start of sample window
-                         unsigned int peakToPeak = 0;   // peak-to-peak level
-
-                         unsigned int signalMax = 0;
-                         unsigned int signalMin = 1024;
-
-                         // collect data for 50 mS
-                         while (millis() - startMillis < sampleWindow)
-                         {
-                            sample = analogRead(0);
-                            if (sample < 1024)  // toss out spurious readings
-                            {
-                               if (sample > signalMax)
-                               {
-                                  signalMax = sample;  // save just the max levels
-                               }
-                               else if (sample < signalMin)
-                               {
-                                  signalMin = sample;  // save just the min levels
-                               }
-                            }
-                         }
-                         peakToPeak = signalMax - signalMin;  // max - min = peak-peak amplitude
-                         double volts = (peakToPeak * 3.3) / 1024;  // convert to volts
-                         int audio = volts * 100;
-
-                         Serial.println(audio);
-
-                          String audioToPubnub = String(audio);
-                          client.stop();
-                           if(client.connect(server, 80)) {
-                            client.println("GET /publish/pub-c-a3ff103c-13da-40f7-9134-45670c77ae43/sub-c-8740379a-1fcd-11e6-8b91-02ee2ddab7fe/0/test/0/%7B%22audio%22%3A"+audioToPubnub+"%7D HTTP/1.1");
-                            client.println("Host: pubsub.pubnub.com");
-                            client.println("User-Agent: ArduinoWiFi/1.1");
-                            client.println("Connection: close");
-                            client.println();
-                           } else {
-                            Serial.println("Connection failed!");
-                           }
-                         delay(500);
-                      }
-
-                        void printWifiStatus(){
-                          Serial.print("SSID: ");
-                          Serial.print(WiFi.SSID());
-                          IPAddress ip = WiFi.localIP();
-                          Serial.print("IP Address: ");
-                          Serial.println(ip);
-                          long rssi = WiFi.RSSI();
-                          Serial.print("signal strength (RSSI):");
-                          Serial.print(rssi);
-                          Serial.println(" dBm");
-                        }
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                       </p>
                     </div>
                 </div>
@@ -358,11 +97,11 @@
 
 
       <div class="col-sm-3 col-xs-6">
-        <button class="btn btn-primary glyphicon glyphicon-headphones" data-toggle="modal" data-target="#largeModal"></button>
+        <button class="btn btn-primary glyphicon glyphicon-headphones" data-toggle="modal" data-target="#largeModal4"></button>
         <h4>Audio</h4>
         <p>Click the headphones</p>
         <!-- Large modal -->
-        <div id="largeModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog">
+        <div id="largeModal4" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -370,94 +109,95 @@
                         <h4 class="modal-title">Audio Sensor C++ Code</h4>
                     </div>
                     <div class="modal-body">
-                      <p>/****************************************
-                      Example Sound Level Sketch for the
-                      Adafruit Microphone Amplifier
-                      ****************************************/
-                      #include <WiFi101.h>
+                      <p>
+                        /****************************************<br>
+                        Example Sound Level Sketch for the<br>
+                        Adafruit Microphone Amplifier<br>
+                        ****************************************/<br>
+                        #include < WiFi101.h > <br>
+<br>
+                        static char ssid[] = "YOUR WIFI SSID";<br>
+                        static char password[] = "YOUR WIFI PASSWORD";<br>
+                        int keyIndex = 0;<br>
+                        int status = WL_IDLE_STATUS;<br>
+                        const char server[] = "pubsub.pubnub.com";<br>
+                        WiFiClient client;<br>
+<br>
+                        int audio = A0;<br>
+                        int delayTime = 5000;<br>
+<br>
+                        const int sampleWindow = 50; // Sample window width in mS (50 mS = 20Hz)<br>
+                        unsigned int sample;<br>
+<br>
+                        void setup() {<br>
+                           Serial.begin(115200);<br>
+                           delay(10);<br>
+                           pinMode(audio, INPUT);<br>
+<br>
+                           while (status != WL_CONNECTED) {<br>
+                            Serial.print("Attempting to conenct to SSID: ");<br>
+                            Serial.println(ssid);<br>
+                            status = WiFi.begin(ssid, password);<br>
+                            delay(10000);<br>
+                           }<br>
+                           printWifiStatus();<br>
+                        }<br>
+<br>
 
-                      static char ssid[] = "2WIRE648";
-                      static char password[] = "3519464889";
-                      int keyIndex = 0;
-                      int status = WL_IDLE_STATUS;
-                      const char server[] = "pubsub.pubnub.com";
-                      WiFiClient client;
-
-                      int audio = A0;
-                      int delayTime = 5000;
-
-                      const int sampleWindow = 50; // Sample window width in mS (50 mS = 20Hz)
-                      unsigned int sample;
-
-                      void setup() {
-                         Serial.begin(115200);
-                         delay(10);
-                         pinMode(audio, INPUT);
-
-                         while (status != WL_CONNECTED) {
-                          Serial.print("Attempting to conenct to SSID: ");
-                          Serial.println(ssid);
-                          status = WiFi.begin(ssid, password);
-                          delay(10000);
-                         }
-                         printWifiStatus();
-                      }
-
-
-                      void loop() {
-                         unsigned long startMillis= millis();  // Start of sample window
-                         unsigned int peakToPeak = 0;   // peak-to-peak level
-
-                         unsigned int signalMax = 0;
-                         unsigned int signalMin = 1024;
-
-                         // collect data for 50 mS
-                         while (millis() - startMillis < sampleWindow)
-                         {
-                            sample = analogRead(0);
-                            if (sample < 1024)  // toss out spurious readings
-                            {
-                               if (sample > signalMax)
-                               {
-                                  signalMax = sample;  // save just the max levels
-                               }
-                               else if (sample < signalMin)
-                               {
-                                  signalMin = sample;  // save just the min levels
-                               }
-                            }
-                         }
-                         peakToPeak = signalMax - signalMin;  // max - min = peak-peak amplitude
-                         double volts = (peakToPeak * 3.3) / 1024;  // convert to volts
-                         int audio = volts * 100;
-
-                         Serial.println(audio);
-
-                          String audioToPubnub = String(audio);
-                          client.stop();
-                           if(client.connect(server, 80)) {
-                            client.println("GET /publish/pub-c-a3ff103c-13da-40f7-9134-45670c77ae43/sub-c-8740379a-1fcd-11e6-8b91-02ee2ddab7fe/0/test/0/%7B%22audio%22%3A"+audioToPubnub+"%7D HTTP/1.1");
-                            client.println("Host: pubsub.pubnub.com");
-                            client.println("User-Agent: ArduinoWiFi/1.1");
-                            client.println("Connection: close");
-                            client.println();
-                           } else {
-                            Serial.println("Connection failed!");
-                           }
-                         delay(500);
-                      }
-
-                        void printWifiStatus(){
-                          Serial.print("SSID: ");
-                          Serial.print(WiFi.SSID());
-                          IPAddress ip = WiFi.localIP();
-                          Serial.print("IP Address: ");
-                          Serial.println(ip);
-                          long rssi = WiFi.RSSI();
-                          Serial.print("signal strength (RSSI):");
-                          Serial.print(rssi);
-                          Serial.println(" dBm");
-                        }
+                        void loop() {<br>
+                           unsigned long startMillis= millis();  // Start of sample window<br>
+                           unsigned int peakToPeak = 0;   // peak-to-peak level<br>
+<br>
+                           unsigned int signalMax = 0;<br>
+                           unsigned int signalMin = 1024;<br>
+<br>
+                           // collect data for 50 mS<br>
+                           while (millis() - startMillis < sampleWindow)<br>
+                           {<br>
+                              sample = analogRead(0);<br>
+                              if (sample < 1024)  // toss out spurious readings<br>
+                              {<br>
+                                 if (sample > signalMax)<br>
+                                 {<br>
+                                    signalMax = sample;  // save just the max levels<br>
+                                 }<br>
+                                 else if (sample < signalMin)<br>
+                                 {<br>
+                                    signalMin = sample;  // save just the min levels<br>
+                                 }<br>
+                              }<br>
+                           }<br>
+                           peakToPeak = signalMax - signalMin;  // max - min = peak-peak amplitude<br>
+                           double volts = (peakToPeak * 3.3) / 1024;  // convert to volts<br>
+                           int audio = volts * 100;<br>
+<br>
+                           Serial.println(audio);<br>
+<br>
+                            String audioToPubnub = String(audio);<br>
+                            client.stop();<br>
+                             if(client.connect(server, 80)) {<br>
+                              client.println("GET /publish/pub-c-a3ff103c-13da-40f7-9134-45670c77ae43/sub-c-8740379a-1fcd-11e6-8b91-02ee2ddab7fe/0/test/0/%7B%22audio%22%3A"+audioToPubnub+"%7D HTTP/1.1");<br>
+                              client.println("Host: pubsub.pubnub.com");<br>
+                              client.println("User-Agent: ArduinoWiFi/1.1");<br>
+                              client.println("Connection: close");<br>
+                              client.println();<br>
+                             } else {<br>
+                              Serial.println("Connection failed!");<br>
+                             }<br>
+                           delay(500);<br>
+                        }<br>
+<br>
+                          void printWifiStatus(){<br>
+                            Serial.print("SSID: ");<br>
+                            Serial.print(WiFi.SSID());<br>
+                            IPAddress ip = WiFi.localIP();<br>
+                            Serial.print("IP Address: ");<br>
+                            Serial.println(ip);<br>
+                            long rssi = WiFi.RSSI();<br>
+                            Serial.print("signal strength (RSSI):");<br>
+                            Serial.print(rssi);<br>
+                            Serial.println(" dBm");<br>
+                          }<br>
                       </p>
                     </div>
                 </div>

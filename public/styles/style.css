@@ -158,7 +158,12 @@ p {
 .icon-block .material-icons {
   font-size: inherit;
 }
-
+.modal-body{
+  font-family: Avenir;
+  font-size: 12px;
+  color: black;
+  text-align: left;
+}
 footer.page-footer {
   margin: 0;
 }

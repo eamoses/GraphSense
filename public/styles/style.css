@@ -28,13 +28,32 @@
  .text-vcenter h1 {
    font-size: 4.5em;
    font-weight: 700;
+   font-family: Avenir;
    margin: 0;
    padding: 0;
  }
 
+h3{
+  font-family: Avenir;
+}
+h2{
+  font-family: Avenir;
+}
+h4{
+  font-family: Avenir;
+}
+p{
+  font-family: Avenir;
+}
+a{
+  font-family: Avenir;
+}
+button{
+  outline: none !important;
+}
  /* additional sections */
  #home {
-   background: url(../images/home.jpg) no-repeat center center fixed;
+   /*background: url(../images/home.jpg) no-repeat center center fixed;*/
    display: table;
    height: 100%;
    position: relative;
@@ -49,7 +68,7 @@
  }
 
  #services {
-   background-color: #306d9f;
+   background-color: black;
    color: #ffffff;
  }
  #services .glyphicon {
@@ -65,7 +84,7 @@
  }
 
  #information {
-   background: url(../images/estate.jpg) no-repeat center center fixed;
+   /*background: url(../images/estate.jpg) no-repeat center center fixed;*/
    display: table;
    height: 800px;
    position: relative;
@@ -96,7 +115,7 @@
 
 nav ul a,
 nav .brand-logo {
-  color: #444;
+  color: black;
 }
 
 p {

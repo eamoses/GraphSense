@@ -1,4 +1,4 @@
-<h2>Graph Sense</h2>
+<h2>Search graphs by sensor type:</h2>
 
   <hr>
 
@@ -7,18 +7,13 @@
       <a ng-show="main.currentUser.isLoggedIn()" class="btn btn-primary btn-block" href="/graphs/new">Search All Graphs</a>
     </div> -->
     <div class ="col-xs-12 col-md-8">
-      <input type="text" class="form-control" placeholder="Search By Category">
+      <input type="text" class="form-control" placeholder="Search By Sensor">
     </div>
 </div>
-
     <hr>
-
-
     <div class="row">
        <div id='container' class="col-xs-12 col-md-10">
        </div>
-
-
     <script>
 
     // set the theme
@@ -134,7 +129,6 @@
             //  pointInterval: 3600 * 1000 // one hour
          }]
      });
-
     </script>
 
 <!-- <div ng-if="home.graphs.length">

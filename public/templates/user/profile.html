@@ -1,10 +1,7 @@
 <div class="row">
    <div id='container' class="col-xs-12 col-md-10">
    </div>
-
-
 <script>
-
 // set the theme
  Highcharts.setOptions({
       global : {
@@ -118,25 +115,20 @@
         //  pointInterval: 3600 * 1000 // one hour
      }]
  });
-
 </script>
 
 <div class="col-xs-6 col-md-2">
 <h3>{{main.currentUser.userName}}</h3>
-<hr>
 <p><strong>Username:</strong> {{main.currentUser.userName}}</p>
 <p><strong>Email:</strong> {{main.currentUser.email}}</p>
-<!-- <p><strong>Joined:</strong> {{main.currentUser.created}}</p> -->
-<p><strong>Graphs:</strong> {{main.currentUser.graphs.length || 0}}</p>
+<!-- <p><strong>Graphs:</strong> {{main.currentUser.graphs.length || 0}}</p> -->
 <p><strong>Current Location:</strong>{{main.currentUser.currentLocation}}</p>
 <hr>
 <a href="#" ng-click="profileCtrl.showEditForm=true" ng-hide="profileCtrl.showEditForm" class="btn btn-default"><i class="fa fa-pencil"></i> Edit Profile</a>
+<hr>
 </div>
-
+<div class="col-xs-6 col-md-2">
 <form ng-submit="profileCtrl.updateProfile()" ng-show="profileCtrl.showEditForm">
-  <div class="form-group">
-    <input type="text" ng-model="profileCtrl.new_profile.userName" class="form-control" placeholder="Username">
-  </div>
   <div class="form-group">
     <input type="text" ng-model="profileCtrl.new_profile.email" class="form-control" placeholder="Email">
   </div>
@@ -144,5 +136,7 @@
     <input type="text" ng-model="profileCtrl.new_profile.currentLocation" class="form-control" placeholder="Current Location">
   </div>
   <input type="submit" value="Save Profile" class="btn btn-block btn-info">
+  <hr>
 </form>
+</div>
 </div>

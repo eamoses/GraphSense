@@ -9,6 +9,7 @@
  body {
    margin: 0;
  }
+
  #nav-text{
    font-family: Avenir;
    color: white;
@@ -130,6 +131,10 @@ button{
  }
 
  footer div p{
+   text-align: center;
+ }
+
+ footer div{
    text-align: center;
  }
 

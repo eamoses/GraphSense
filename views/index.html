@@ -80,7 +80,7 @@
           <li ng-show="!main.currentUser.isLoggedIn()"><a id="log-text" href="/login">Log In</a></li>
           <li ng-show="main.currentUser.isLoggedIn()"><a id="user-text" href="/profile">{{main.currentUser.userName}}'s Profile</a></li>
           <li ng-show="main.currentUser.isLoggedIn()"><a id="out-text" href="/logout">Log Out</a></li>
-          <li ng-show="main.currentUser.isLoggedIn()"><a id="search-text" href="/graphs">Search All Graphs</a></li>
+          <li ng-show="!main.currentUser.isLoggedIn()"><a id="search-text" href="/graphs">Search All Graphs</a></li>
         </ul>
       </div>
     </div>

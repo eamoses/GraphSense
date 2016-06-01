@@ -197,7 +197,6 @@ function dataCall(){
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     </div>
                   <div class="modal-body">
-                    <!-- <div class="col-xs-6 col-md-2"> -->
                     <h3>{{main.currentUser.userName}}</h3>
                     <p><strong>Username:</strong> {{main.currentUser.userName}}</p>
                     <p><strong>Email:</strong> {{main.currentUser.email}}</p>
@@ -205,8 +204,6 @@ function dataCall(){
                     <hr>
                     <a href="#" ng-click="profileCtrl.showEditForm=true" ng-hide="profileCtrl.showEditForm" class="btn btn-default"><i class="fa fa-pencil"></i> Edit Profile</a>
                     <hr>
-                    <!-- </div> -->
-                    <!-- <div class="col-xs-6 col-md-2"> -->
                     <form ng-submit="profileCtrl.updateProfile()" ng-show="profileCtrl.showEditForm">
                       <div class="form-group">
                         <input type="text" ng-model="profileCtrl.new_profile.email" class="form-control" placeholder="Email">
@@ -217,7 +214,6 @@ function dataCall(){
                       <input type="submit" value="Save Profile" class="btn btn-block btn-info">
                       <hr>
                     </form>
-                  <!-- </div> -->
               </div>
          </div>
       </div>

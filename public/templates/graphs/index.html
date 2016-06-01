@@ -3,9 +3,6 @@
   <hr>
 
 <div class="row">
-    <!-- <div class="col-xs-12 col-md-4">
-      <a ng-show="main.currentUser.isLoggedIn()" class="btn btn-primary btn-block" href="/graphs/new">Search All Graphs</a>
-    </div> -->
     <div class ="col-xs-12 col-md-8">
       <input type="text" my-on-key-down-call="callRestService()" class="form-control" placeholder="Search By Sensor">
     </div>
@@ -118,7 +115,6 @@
         var chart = new Highcharts.Chart({
             xAxis: {
                 type: 'datetime'
-               //  categories: timeToken //breaks Angular
             },
             chart: {
               type: 'line',
@@ -138,7 +134,6 @@
         var chartOne = new Highcharts.Chart({
             xAxis: {
                 type: 'datetime'
-               //  categories: timeToken //breaks Angular
             },
             chart: {
               type: 'line',
@@ -158,7 +153,6 @@
         var chartTwo = new Highcharts.Chart({
             xAxis: {
                 type: 'datetime'
-               //  categories: timeToken //breaks Angular
             },
             chart: {
               type: 'line',
@@ -174,19 +168,4 @@
             }]
         });
        </script>
-
-<!-- <div ng-if="home.graphs.length">
- <div ng-repeat="graph in home.graphs">
-  <div class ="row">
-    <div id="container" class="col-xs-12 col-md-12" style="height: 400px; border-style: solid; border-width: 1px; border-color: black;">
-      <p>
-        <strong><a ng-href="/graphs/{{graph._id}}">{{graph.title}}</a></strong>  {{graph.content}}   -{{graph.user.userName}}
-      </p>
-    </div>
-  </div>
-
-      <hr>
-
-</div>
- </div> -->
 </div>

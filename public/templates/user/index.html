@@ -11,9 +11,6 @@
 <div id="about" class="pad-section">
   <div class="container">
     <div class="row">
-      <!-- <div class="col-sm-6"> -->
-        <!-- <img src="http://icdn8.digitaltrends.com/image/led-panel-625x1000.jpg" alt="" /> -->
-      <!-- </div> -->
       <div class="col-sm-12 text-center">
         <h3>Click on one of the sections below to get started with your C++ code.</h3>
         <p class="lead">We're currently serving the following sensors: Audio, Temperature, Pressure and Light</p>
@@ -43,7 +40,95 @@
                         <h4 class="modal-title">Pressure Sensor C++ Code</h4>
                     </div>
                     <div class="modal-body">
-                      <p> Put C++ text here.
+                      <p>
+                        /****************************************<br>
+                        Example Pressure Level Sketch for the<br>
+                        Adafruit Pressure Sensor<br>
+                        ****************************************/<br>
+                        #include < WiFi101.h > <br>
+<br>
+                        static char ssid[] = "YOUR WIFI SSID";<br>
+                        static char password[] = "YOUR WIFI PASSWORD";<br>
+                        int keyIndex = 0;<br>
+                        int status = WL_IDLE_STATUS;<br>
+                        const char server[] = "pubsub.pubnub.com";<br>
+                        WiFiClient client;<br>
+<br>
+                        int pressure = A0;<br>
+                        int delayTime = 5000;<br>
+<br>
+                        const int sampleWindow = 50; // Sample window width in mS (50 mS = 20Hz)<br>
+                        unsigned int sample;<br>
+<br>
+                        void setup() {<br>
+                           Serial.begin(115200);<br>
+                           delay(10);<br>
+                           pinMode(audio, INPUT);<br>
+<br>
+                           while (status != WL_CONNECTED) {<br>
+                            Serial.print("Attempting to conenct to SSID: ");<br>
+                            Serial.println(ssid);<br>
+                            status = WiFi.begin(ssid, password);<br>
+                            delay(10000);<br>
+                           }<br>
+                           printWifiStatus();<br>
+                        }<br>
+<br>
+
+                        void loop() {<br>
+                           unsigned long startMillis= millis();  // Start of sample window<br>
+                           unsigned int peakToPeak = 0;   // peak-to-peak level<br>
+<br>
+                           unsigned int signalMax = 0;<br>
+                           unsigned int signalMin = 1024;<br>
+<br>
+                           // collect data for 50 mS<br>
+                           while (millis() - startMillis < sampleWindow)<br>
+                           {<br>
+                              sample = analogRead(0);<br>
+                              if (sample < 1024)  // toss out spurious readings<br>
+                              {<br>
+                                 if (sample > signalMax)<br>
+                                 {<br>
+                                    signalMax = sample;  // save just the max levels<br>
+                                 }<br>
+                                 else if (sample < signalMin)<br>
+                                 {<br>
+                                    signalMin = sample;  // save just the min levels<br>
+                                 }<br>
+                              }<br>
+                           }<br>
+                           peakToPeak = signalMax - signalMin;  // max - min = peak-peak amplitude<br>
+                           double volts = (peakToPeak * 3.3) / 1024;  // convert to volts<br>
+                           int audio = volts * 100;<br>
+<br>
+                           Serial.println(audio);<br>
+<br>
+                            String audioToPubnub = String(audio);<br>
+                            client.stop();<br>
+                             if(client.connect(server, 80)) {<br>
+                              client.println("GET /publish/pub-c-a3ff103c-13da-40f7-9134-45670c77ae43/sub-c-8740379a-1fcd-11e6-8b91-02ee2ddab7fe/0/test/0/%7B%22audio%22%3A"+audioToPubnub+"%7D HTTP/1.1");<br>
+                              client.println("Host: pubsub.pubnub.com");<br>
+                              client.println("User-Agent: ArduinoWiFi/1.1");<br>
+                              client.println("Connection: close");<br>
+                              client.println();<br>
+                             } else {<br>
+                              Serial.println("Connection failed!");<br>
+                             }<br>
+                           delay(500);<br>
+                        }<br>
+<br>
+                          void printWifiStatus(){<br>
+                            Serial.print("SSID: ");<br>
+                            Serial.print(WiFi.SSID());<br>
+                            IPAddress ip = WiFi.localIP();<br>
+                            Serial.print("IP Address: ");<br>
+                            Serial.println(ip);<br>
+                            long rssi = WiFi.RSSI();<br>
+                            Serial.print("signal strength (RSSI):");<br>
+                            Serial.print(rssi);<br>
+                            Serial.println(" dBm");<br>
+                          }<br>
                       </p>
                     </div>
                 </div>
@@ -65,7 +150,95 @@
                         <p class="modal-title">Temperature Sensor C++ Code</p>
                     </div>
                     <div class="modal-body">
-                      <p>Put Temperature C++ Here
+                      <p>
+                        /****************************************<br>
+                        Example Temperature Level Sketch for the<br>
+                        Adafruit Temperature Sensor<br>
+                        ****************************************/<br>
+                        #include < WiFi101.h > <br>
+<br>
+                        static char ssid[] = "YOUR WIFI SSID";<br>
+                        static char password[] = "YOUR WIFI PASSWORD";<br>
+                        int keyIndex = 0;<br>
+                        int status = WL_IDLE_STATUS;<br>
+                        const char server[] = "pubsub.pubnub.com";<br>
+                        WiFiClient client;<br>
+<br>
+                        int temp = A0;<br>
+                        int delayTime = 5000;<br>
+<br>
+                        const int sampleWindow = 50; // Sample window width in mS (50 mS = 20Hz)<br>
+                        unsigned int sample;<br>
+<br>
+                        void setup() {<br>
+                           Serial.begin(115200);<br>
+                           delay(10);<br>
+                           pinMode(audio, INPUT);<br>
+<br>
+                           while (status != WL_CONNECTED) {<br>
+                            Serial.print("Attempting to conenct to SSID: ");<br>
+                            Serial.println(ssid);<br>
+                            status = WiFi.begin(ssid, password);<br>
+                            delay(10000);<br>
+                           }<br>
+                           printWifiStatus();<br>
+                        }<br>
+<br>
+
+                        void loop() {<br>
+                           unsigned long startMillis= millis();  // Start of sample window<br>
+                           unsigned int peakToPeak = 0;   // peak-to-peak level<br>
+<br>
+                           unsigned int signalMax = 0;<br>
+                           unsigned int signalMin = 1024;<br>
+<br>
+                           // collect data for 50 mS<br>
+                           while (millis() - startMillis < sampleWindow)<br>
+                           {<br>
+                              sample = analogRead(0);<br>
+                              if (sample < 1024)  // toss out spurious readings<br>
+                              {<br>
+                                 if (sample > signalMax)<br>
+                                 {<br>
+                                    signalMax = sample;  // save just the max levels<br>
+                                 }<br>
+                                 else if (sample < signalMin)<br>
+                                 {<br>
+                                    signalMin = sample;  // save just the min levels<br>
+                                 }<br>
+                              }<br>
+                           }<br>
+                           peakToPeak = signalMax - signalMin;  // max - min = peak-peak amplitude<br>
+                           double volts = (peakToPeak * 3.3) / 1024;  // convert to volts<br>
+                           int audio = volts * 100;<br>
+<br>
+                           Serial.println(audio);<br>
+<br>
+                            String audioToPubnub = String(audio);<br>
+                            client.stop();<br>
+                             if(client.connect(server, 80)) {<br>
+                              client.println("GET /publish/pub-c-a3ff103c-13da-40f7-9134-45670c77ae43/sub-c-8740379a-1fcd-11e6-8b91-02ee2ddab7fe/0/test/0/%7B%22audio%22%3A"+audioToPubnub+"%7D HTTP/1.1");<br>
+                              client.println("Host: pubsub.pubnub.com");<br>
+                              client.println("User-Agent: ArduinoWiFi/1.1");<br>
+                              client.println("Connection: close");<br>
+                              client.println();<br>
+                             } else {<br>
+                              Serial.println("Connection failed!");<br>
+                             }<br>
+                           delay(500);<br>
+                        }<br>
+<br>
+                          void printWifiStatus(){<br>
+                            Serial.print("SSID: ");<br>
+                            Serial.print(WiFi.SSID());<br>
+                            IPAddress ip = WiFi.localIP();<br>
+                            Serial.print("IP Address: ");<br>
+                            Serial.println(ip);<br>
+                            long rssi = WiFi.RSSI();<br>
+                            Serial.print("signal strength (RSSI):");<br>
+                            Serial.print(rssi);<br>
+                            Serial.println(" dBm");<br>
+                          }<br>
                       </p>
                     </div>
                 </div>
@@ -310,7 +483,7 @@
     <div class="row">
       <div class="col-sm-12 text-center">
         <h3>Questions or Comments?</h3>
-        <h4>Contact me on GitHub or LinkedIn</h4>
+        <h4>Contact me on GitHub or LinkedIn!</h4>
       </div>
     </div>
   </div>

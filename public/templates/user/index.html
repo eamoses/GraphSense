@@ -1,7 +1,7 @@
 <!-- first section - Home -->
 <div id="home" class="home">
   <div class="text-vcenter">
-    <h2>We <i class="glyphicon glyphicon-heart"></i> sensors <i class="glyphicon glyphicon-plus"></i> data!</h2>
+    <h2>I <i class="glyphicon glyphicon-heart"></i> sensors <i class="glyphicon glyphicon-plus"></i> data!</h2>
     <a href="#about" class="btn btn-default btn-lg">Get C++ Code!</a>
   </div>
 </div>
@@ -13,7 +13,7 @@
     <div class="row">
       <div class="col-sm-12 text-center">
         <h3>Click on one of the sections below to get started with your C++ Arduino code.</h3>
-        <p class="lead">We're currently serving the following sensors: Audio, Temperature, Pressure and Light</p>
+        <p class="lead">We're currently serving the following sensors: Audio, Temperature, Atmospheric Pressure and Light</p>
       </div>
     </div>
   </div>
@@ -29,7 +29,7 @@
 
       <div class="col-sm-3 col-xs-6">
         <button class="btn btn-primary glyphicon glyphicon-cloud" data-toggle="modal" data-target="#largeModal1"></button>
-        <h4>Pressure</h4>
+        <h4>Atmospheric Pressure</h4>
         <h6>Click the cloud</h6>
         <!-- Large modal -->
         <div id="largeModal1" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog">
@@ -37,7 +37,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                       <a href="file:///Users/emilymoses/Code/GraphSense/public/templates/user/pressure_sensor_code.ino" download> ⇩ </a>
-                      <span id="modal-text" class="modal-title">Pressure Sensor C++ Code</span>
+                      <span id="modal-text" class="modal-title">Atmospheric Pressure Sensor C++ Code</span>
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     </div>
                     <div class="modal-body">
@@ -461,7 +461,7 @@
             <p>If you have an Arduino and sensors to collect data, you can click on any one of the sensor icons above to download or copy/paste the .ino file into your Arduino console.</p>
             <p>Once you have the .ino file, be sure to input your WIFI SSID and password.  We use PubNub to collect the sensor data to be able to display on our site, and our PubNub key is already in the .ino file.</p>
             <p>It is very important that you do not alter the .ino file in any other way. Alterations to the code might break the graphs, or may cause your data to display incorrectly!</p>
-            <p>If you're interested in finding a graph for a project or presentation, feel free to click the Search All Graphs link and you may search our database of every Light, Audio, Temperature and Pressure graph our users have accumulated so far.</p>
+            <p>If you're interested in finding a graph for a project or presentation, feel free to click the Search All Graphs link and you may search our database of every Light, Audio, Temperature and Atmospheric Pressure graph our users have accumulated so far.</p>
             <p>Stay tuned for more options if you're interested in customizing the graphs further. We have some fun and flexible options in the mix!</p>
           </div>
         </div>
@@ -472,10 +472,11 @@
             <h2 class="panel-title">MORE RESOURCES</h2>
           </div>
           <div class="panel-body lead">
-            <p>If you have an Arduino and sensors to collect data, you can click on any one of the sensor icons above to download or copy/paste the .ino file into your Arduino console.</p>
-            <p>Once you have the .ino file, be sure to input your WIFI SSID and password.  We use PubNub to collect the sensor data to be able to display on our site, and our PubNub key is already in the .ino file.</p>
-            <p>It is very important that you do not alter the .ino file in any other way. Alterations to the code might break the graphs, or may cause your data to display incorrectly!</p>
-            <p>If you're interested in finding a graph for a project or presentation, feel free to click the Search All Graphs link and you may search our database of every Light, Audio, Temperature and Pressure graph our users have accumulated so far.</p>
+            <p>I want to introduce you to a few of the excellent resources I used to create this site. In addition to GitHub, I used PubNub's service to hold blobs of data and I used High Charts to beautifully display said data.</p>
+            <p>I still have a few tricks up my sleeve in order to allow users to customize their data within High Charts and to ensure we don't exceed PubNub's 1 million messages per month restriction</p>
+            <p>Visit PubNub here to read more: <a href='https://www.pubnub.com/' target='_blank'>PubNub</a></p>
+            <p>Visit High Charts here to read more: <a href='http://www.highcharts.com/' target='_blank'>High Charts</a></p>
+            <p>If you're interested in finding a graph for a project or presentation, feel free to click the Search All Graphs link and you may search our database of every Light, Audio, Temperature and Atmospheric Pressure graph our users have accumulated so far.</p>
             <p>Stay tuned for more options if you're interested in customizing the graphs further. We have some fun and flexible options in the mix!</p>
           </div>
         </div>

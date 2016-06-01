@@ -46,7 +46,9 @@
   color: #ffffff;
   margin: 0;
 }
-
+#modal-text{
+  color:black;
+}
  div.container-fluid{
    color: white;
    background-color: black;

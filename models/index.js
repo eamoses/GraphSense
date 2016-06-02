@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/graphSense' ||
-                  process.env.MONGOLAB_URI ||
-                  process.env.MONGOHQ_URL );
+mongoose.connect( process.env.MONGOLAB_URI ||
+                  process.env.MONGOHQ_URL ||
+                'mongodb://localhost/graphSense');
 
 module.exports = {
   User: require("./user"),

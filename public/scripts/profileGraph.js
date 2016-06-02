@@ -2,7 +2,8 @@ var ardData;
 var settings = {
   channel: '1a',
   publish_key: 'pub-c-6d531795-b849-4e94-b216-b518015fa7df',
-  subscribe_key: 'sub-c-65f59724-23b5-11e6-8bc8-0619f8945a4f'
+  subscribe_key: 'sub-c-65f59724-23b5-11e6-8bc8-0619f8945a4f',
+  ssl: true
 };
 var pubnub = PUBNUB(settings);
 var tempData=[];
@@ -13,7 +14,7 @@ var testy;
 pubnub.history({
   channel: '1a',
   callback: function(m){
-    console.log(m)
+    console.log(m);
     testy = m;
     for (var i = 0; i < m[0].length; i++) {
       lightData = lightData.concat((m[0][i].light)/2);

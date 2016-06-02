@@ -19,8 +19,9 @@ angular
    Pubnub.init({
      publish_key: 'pub-c-a3ff103c-13da-40f7-9134-45670c77ae43',
      subscribe_key: 'sub-c-8740379a-1fcd-11e6-8b91-02ee2ddab7fe',
-         uuid: $scope.uuid
-       });
+     ssl: true,
+     uuid: $scope.uuid
+  });
   })
   .service('UserService', UserService)
   .config(configRoutes);

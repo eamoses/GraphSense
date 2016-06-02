@@ -7,7 +7,7 @@ var express = require('express'),
     controllers = require("./controllers");
 
 // require and load dotenv
-require('dotenv').load();
+require('dotenv').config({silent: true});
 
 // configure bodyParser (for receiving form data)
 app.use(bodyParser.urlencoded({ extended: true }));

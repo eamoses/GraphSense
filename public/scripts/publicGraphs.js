@@ -1,3 +1,67 @@
+var ardData;
+var settings = {
+  channel: 'test',
+  publish_key: 'pub-c-a3ff103c-13da-40f7-9134-45670c77ae43',
+  subscribe_key: 'sub-c-8740379a-1fcd-11e6-8b91-02ee2ddab7fe',
+  ssl: true
+};
+var pubnub = PUBNUB(settings);
+var audioData=[];
+var testy;
+
+pubnub.history({
+  channel: 'test',
+  callback: function(m){
+    console.log(m);
+    testy = m;
+    for (var i = 0; i < m[0].length; i++) {
+      audioData = audioData.concat(m[0][i].audio);
+    }
+    console.log('thisis', audioData);
+    dataAudioCall();
+  },
+  count: 100,
+  reverse: false
+});
+
+pubnub.subscribe({
+  channel: 'test',
+  callback: function(m){
+    ardData = m;
+    console.log('arduino data: ', m);
+    audioData=audioData.concat(ardData.audio);
+    console.log(audioData);
+    dataAudioCall();
+  },
+  error: function(err) {
+    console.log(err);
+  }
+});
+
+
+function dataAudioCall(){
+ var chartAudio = new Highcharts.Chart({
+   xAxis: {
+     type: 'datetime'
+   },
+   chart: {
+     type: 'areaspline',
+     renderTo: 'audioTest'
+   },
+   title: {
+     text: 'Audio Sensor Data Friday June 3, 2016'
+   },
+   series: [{
+     animation: false,
+     name: 'Audio Sensor',
+     data: audioData,
+     pointStart: Date.UTC(2016, 05, 02),
+     pointInterval: 180 * 1000
+    }
+   ],
+  });
+ }
+
 // set the theme
  Highcharts.setOptions({
      colors: ['#058DC7', '#50B432', '#ED561B', '#DDDF00', '#24CBE5', '#64E572', '#FF9655', '#FFF263', '#6AF9C4'],
@@ -105,21 +169,21 @@
        text: 'Temperature, Light and Pressure Data Sunday May 28, 2016'
      },
      series: [{
-        //  animation: false,
+        animation: false,
        name: 'Atmospheric Pressure Sensor',
        data: sunPress,
        pointStart: Date.UTC(2016, 04, 28),
        pointInterval: 180 * 1000 // one hour
        },
        {
-          //  animation: false,
+          animation: false,
          name: 'Temperature Sensor',
          data: sunTemp,
          pointStart: Date.UTC(2016, 04, 28),
          pointInterval: 180 * 1000 // one hour
          },
          {
-        //  animation: false,
+        animation: false,
        name: 'Light Sensor',
        data: sunLight,
        pointStart: Date.UTC(2016, 04, 28),

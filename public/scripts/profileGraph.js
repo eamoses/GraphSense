@@ -155,21 +155,21 @@ function dataCall(){
          text: 'Sensor Data'
        },
        series: [{
-          //  animation: false,
+           animation: false,
            name: 'Light Sensor',
            data: lightData,
            pointStart: Date.UTC(2016, 05, 01),
            pointInterval: 180 * 1000 // one hour
          },
          {
-          //  animation: false,
+           animation: false,
            name: 'Temperature Sensor',
            data: tempData,
            pointStart: Date.UTC(2016, 05, 01),
            pointInterval: 180 * 1000 // one hour
          },
          {
-          //  animation: false,
+           animation: false,
            name: 'Pressure Sensor',
            data: pressData,
            pointStart: Date.UTC(2016, 05, 01),

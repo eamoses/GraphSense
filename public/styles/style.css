@@ -41,6 +41,11 @@
    color: black;
    text-align: left;
  }
+ div .col-xs-12{
+   font-family: Avenir;
+   font-size: 16px;
+   color: red;
+ }
 
 /* STYLES in views/index.html*/
  div.container-fluid{

@@ -62,6 +62,9 @@ function configRoutes($routeProvider, $locationProvider) {
       controller: 'GraphsShowController',
       controllerAs: 'graphsShowCtrl'
     })
+    .when('/graphs/index/:title', {
+            templateUrl: 'views/graphs/index.html'
+    })
     .otherwise({redirectTo: '/'});
 
     function skipIfLoggedIn($auth) {

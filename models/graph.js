@@ -3,8 +3,7 @@ var mongoose = require('mongoose'),
 
 var graphSchema = new Schema({
   user: { type: Schema.Types.ObjectId, ref: 'User' },
-  title: String,
-  description: String
+  title: String
 });
 
 var Graph = mongoose.model('Graph', graphSchema);

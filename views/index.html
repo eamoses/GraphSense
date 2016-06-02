@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <base href="/">
 
-
   <!-- BOOTSTRAP BOOTSTRAP BOOTSTRAP BOOTSTRAP BOOTSTRAP BOOTSTRAP BOOTSTRAP bootstrap css -->
   <!-- jquery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
@@ -30,7 +29,7 @@
 
 
   <!-- custom styles -->
-  <!-- <link rel="stylesheet" type="text/css" href="styles/style.css"> -->
+  <link rel="stylesheet" type="text/css" href="styles/style.css">
 
   <!-- Angular -->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
@@ -49,16 +48,23 @@
   <script type="text/javascript" src="scripts/services/user.service.js"></script>
   <script type="text/javascript" src="scripts/routes.js"></script>
   <script type="text/javascript" src="scripts/app.js"></script>
+  <script type="text/javascript" src="scripts/hardHistory.js"></script>
 
   <!-- jquery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+  <script src="https://cdn.rawgit.com/scalabl3/pubnub-flex-history/v1.05/pubnub-flex-history-min.js"></script>
+  <script src="http://cdn.pubnub.com/pubnub-3.7.15.min.js"></script>
 
+  <!--PUBNUB-->
+  <script src="https://cdn.pubnub.com/pubnub-3.7.21.js"></script>
+  <script src="https://cdn.pubnub.com/sdk/pubnub-angular/pubnub-angular-3.1.1.js"></script>
+  <!--PUBNUB-->
 
   <title>Graph Sense</title>
 </head>
 <body ng-controller="MainController as main">
-  <nav class="navbar navbar-default">
-    <div class="container">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar-collapse-1" aria-expanded="false">
           <span class="sr-only">Toggle navigation</span>
@@ -66,24 +72,26 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/">Graph Sense</a>
+        <a id="nav-text" class="navbar-brand" href="/">Graph Sense</a>
       </div>
       <div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
-          <li ng-show="!main.currentUser.isLoggedIn()"><a href="/signup">Sign Up</a></li>
-          <li ng-show="!main.currentUser.isLoggedIn()"><a href="/login">Log In</a></li>
-          <li ng-show="main.currentUser.isLoggedIn()"><a href="/profile">{{main.currentUser.userName}}'s Profile</a></li>
-          <li ng-show="main.currentUser.isLoggedIn()"><a href="/logout">Log Out</a></li>
-          <li ng-show="main.currentUser.isLoggedIn()"><a href="/graphs">Search All Graphs</a></li>
+          <li ng-show="!main.currentUser.isLoggedIn()"><a id="sign-text" href="/signup">Sign Up</a></li>
+          <li ng-show="!main.currentUser.isLoggedIn()"><a id="log-text" href="/login">Log In</a></li>
+          <li ng-show="main.currentUser.isLoggedIn()"><a id="user-text" href="/profile">{{main.currentUser.userName}}'s profile</a></li>
+          <li ng-show="main.currentUser.isLoggedIn()"><a id="out-text" href="/logout">Log Out</a></li>
+          <li><a id="search-text" href="/graphs">Search All Graphs</a></li>
         </ul>
       </div>
     </div>
   </nav>
-  <div class="container">
-    <div class="row">
-      <div ng-view>
+
+    <div class="container">
+      <div class="row">
+        <div ng-view>
+        </div>
       </div>
     </div>
-  </div>
+
 </body>
 </html>

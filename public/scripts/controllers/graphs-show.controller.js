@@ -36,5 +36,13 @@ function GraphsShowController ($location, $http, $routeParams) {
     }
   }
 
+  $scope.findOne = function() {
+      Graphs.get({
+        graphId: $stateParams.graphId
+      }, function(graph) {
+        $scope.graph = graph;
+      });
+    };
+
 
 }

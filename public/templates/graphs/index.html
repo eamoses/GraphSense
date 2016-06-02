@@ -1,30 +1,23 @@
-<h2>Graph Sense</h2>
-
-  <hr>
-
-<div class="row">
-    <div class="col-xs-12 col-md-4">
-      <a ng-show="main.currentUser.isLoggedIn()" class="btn btn-primary btn-block" href="/graphs/new">Search All Graphs</a>
-    </div>
-    <div class ="col-xs-12 col-md-8">
-      <input type="text" class="form-control" placeholder="Search By Category">
-    </div>
-</div>
+<h2>Search graphs by sensor type:</h2>
 
     <hr>
 
-<div ng-if="home.graphs.length">
- <div ng-repeat="graph in home.graphs">
-  <div class ="row">
-    <div id="container" class="col-xs-12 col-md-12" style="height: 400px; border-style: solid; border-width: 1px; border-color: black;">
-      <p>
-        <strong><a ng-href="/graphs/{{graph._id}}">{{graph.title}}</a></strong>  {{graph.content}}   -{{graph.user.userName}}
-      </p>
+      <input type="text" id="search-criteria" class="form-control" placeholder="Search By Sensor">
+
+    <hr>
+
+    <div class="row">
+       <div id='container' class="graph col-xs-12 col-md-10">
+       </div>
+       <div id='containerOne' class="graph col-xs-12 col-md-10">
+       </div>
+       <div id='containerTwo' class="graph col-xs-12 col-md-10">
+       </div>
+       <div id='containerThree' class="graph col-xs-12 col-md-10">
+       </div>
+       <div id='containerFour' class="graph col-xs-12 col-md-10">
+       </div>
+
+       <script type="text/javascript" src="scripts/publicGraphs.js"></script>
+
     </div>
-  </div>
-
-      <hr>
-
-</div>
- </div>
-</div>

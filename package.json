@@ -6,6 +6,10 @@
   "scripts": {
     "test": "mocha"
   },
+  "engines": {
+    "node": "6.2.0",
+    "npm": "3.8.9"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/eamoses/GraphSense.git"

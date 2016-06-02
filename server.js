@@ -53,7 +53,6 @@ app.get(['/', '/signup', '/login', '/logout', '/profile', '/graphs*'], function 
  * Listen on localhost:3000
  */
 var port = process.env.PORT || 3000;
-app.listen(process.env.PORT || 3000);
 app.listen(port, function() {
   console.log('server started on port ', port);
 });

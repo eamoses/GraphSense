@@ -44,10 +44,10 @@ This application has the following REST endpoints:
 6. Search all graphs by sensor type name
 
 Screenshot:
-![Graph Sense Screenshot](public/images/graphSenseOne.png?raw=true "GraphSense")
+![Graph Sense Screenshot](public/styles/images/graphSenseOne.png?raw=true "GraphSense")
 
-![Graph Sense Screenshot](public/images/graphSenseTwo.png?raw=true "GraphSense")
+![Graph Sense Screenshot](public/styles/images/graphSenseTwo.png?raw=true "GraphSense")
 
-![Graph Sense Screenshot](public/images/graphSenseThree.png?raw=true "GraphSense")
+![Graph Sense Screenshot](public/styles/images/graphSenseThree.png?raw=true "GraphSense")
 
 Github Link: https://github.com/eamoses/GraphSense

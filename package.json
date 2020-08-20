@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/eamoses/GraphSense.git",
   "dependencies": {
-    "bcrypt": "^0.8.6",
+    "bcrypt": "^5.0.0",
     "body-parser": "^1.14.1",
     "chai": "^3.4.0",
     "cookie-parser": "^1.4.3",
